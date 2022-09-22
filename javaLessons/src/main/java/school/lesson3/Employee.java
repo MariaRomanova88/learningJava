@@ -1,7 +1,9 @@
 package school.lesson3;
 
+         //Task 1;
 public class Employee {
 
+        //Task 4;
     public static void main(String[] args) {
 
         Employee[] emp = new Employee[5];
@@ -11,15 +13,16 @@ public class Employee {
         emp[3] = new Employee("John Smith", "BA", "8954345707", "smith@gmail.com", 5.900, 41);
         emp[4] = new Employee("Cavin Morris", "HR", "3368076128", "morris@gmail.com", 3.500, 29);
 
+        //Task 5;
         for (Employee employee : emp)
-            if (employee.getAge()>40)
+            if (employee.getAge() > 40)
                 System.out.println(employee);
     }
-
     public int getAge() {
         return age;
     }
 
+       //Task 1-3;
     private String fullName;
     private String position;
     private String phoneNumber;
@@ -34,15 +37,14 @@ public class Employee {
         this.email = email;
         this.salary = salary;
         this.age = age;
-
     }
 
-    public void info() {
-        {
-            System.out.println("Меня зовут " + fullName + ", должность: " + position + ", номер телефона: " + phoneNumber + ", email " + email + ", зарплата: " + salary + ", возраст: " + age);
+    public void info () {
+            {
+                System.out.println("Меня зовут " + fullName + ", должность: " + position + ", номер телефона: " + phoneNumber + ", email " + email + ", зарплата: " + salary + ", возраст: " + age);
+            }
         }
     }
-}
 
 
     
