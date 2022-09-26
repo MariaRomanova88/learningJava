@@ -21,6 +21,5 @@ public class MainClass {
             }
         }
         plate.info();
-        System.out.println("Put food on the plate.");
     }
 }
