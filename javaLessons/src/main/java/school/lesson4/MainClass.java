@@ -24,13 +24,15 @@ public class MainClass {
             System.out.println("There is/are " + catCount + " cat(-s).");
             catCount --;
         }
+
         while (dogCount != 0) {
             System.out.println("There is/are " + dogCount + " dog(-s).");
             dogCount --;
         }
+
         while (animalCount != 0) {
             System.out.println("There is/are " + animalCount + " animal(-s).");
-            animalCount--;
+            animalCount --;
         }
 
     }
