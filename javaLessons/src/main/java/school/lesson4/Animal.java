@@ -5,11 +5,9 @@ public abstract class Animal {
     protected String type;
     protected int maxRun;
     protected int maxSwim;
-    private static int count;
 
     public Animal () {
     }
-
     public Animal (String name) {
         this.name = name;
     }
@@ -20,6 +18,7 @@ public abstract class Animal {
         this.maxRun = maxRun;
         this.maxSwim = maxSwim;
     }
+
     public void run(int x) {
         if (this.maxRun >= x)
             System.out.println(type + " " + name + " " + " ran " + x + " m.");
@@ -36,9 +35,6 @@ public abstract class Animal {
 
     public void info() {
         System.out.println("name: " + name + ", type: " + type + ", run: " + maxRun + ", swim: " + maxSwim);
-    }
-    public static int getCount() {
-        return count;
     }
 }
 

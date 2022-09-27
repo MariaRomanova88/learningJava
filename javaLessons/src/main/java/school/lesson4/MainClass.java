@@ -8,33 +8,51 @@ public class MainClass {
         int dogCount = 2;
         int animalCount = 4;
 
-        Cat cat1 = new Cat("Pushok");
-        Cat cat2 = new Cat("Dymka");
-        Dog dog1 = new Dog("Mukhtar");
-        Dog dog2 = new Dog("Federika");
+            Cat cat1 = new Cat("Pushok");
+            Cat cat2 = new Cat("Dymka");
+            Dog dog1 = new Dog("Mukhtar");
+            Dog dog2 = new Dog("Federika");
 
-        cat1.run(200);
-        cat2.swim(0);
-        dog1.run(500);
-        dog2.swim(10);
+            cat1.run(200);
+            cat2.swim(0);
+            dog1.run(500);
+            dog2.swim(10);
 
-        System.out.println();
+            System.out.println();
 
-        while (catCount != 0) {
-            System.out.println("There is/are " + catCount + " cat(-s).");
-            catCount --;
-        }
+            while (catCount != 0) {
+                System.out.println("There is/are " + catCount + " cat(-s).");
+                catCount--;
+            }
 
-        while (dogCount != 0) {
-            System.out.println("There is/are " + dogCount + " dog(-s).");
-            dogCount --;
-        }
+            while (dogCount != 0) {
+                System.out.println("There is/are " + dogCount + " dog(-s).");
+                dogCount--;
+            }
 
-        while (animalCount != 0) {
-            System.out.println("There is/are " + animalCount + " animal(-s).");
-            animalCount --;
-        }
+            while (animalCount != 0) {
+                System.out.println("There is/are " + animalCount + " animal(-s).");
+                animalCount--;
+            }
+
+        getCountCat("cat", "2");
+        getCountDog("dog", "2");
+        getCountAnimal("animal", "4");
+    }
+
+    public static void getCountCat(String name, String count) {
+        System.out.println("There is/are " + count + " " + name + "(s).");
+    }
+
+    public static void getCountDog(String name, String count) {
+        System.out.println("There is/are " + count + " " + name + "(s).");
+    }
+
+    public static void getCountAnimal(String name, String count) {
+        System.out.println("There is/are " + count + " " + name + "(s).");
 
     }
 }
+
+
 
