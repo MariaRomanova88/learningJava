@@ -20,21 +20,21 @@ public class AppData {
             // разбиваем строку по разделителю на заголовки
             String[] header = headerLine.split(";");
 
-            // количество столбцов это длина массива header
+            // количество столбцов - это длина массива header
             int numberOfColumns = header.length;
 
             // создаем коллекцию, в которой будут содержаться значения строк и столбцов
             // используем коллекцию ArrayList, т.к. не можем использовать массив, потому что не знаем количество строк в файле
             ArrayList<int[]> list = new ArrayList<>();
 
-            // пробегаем по строчкам файла пока reader.readLine() не вернет null
+            // пробегаем по строчкам файла, пока reader.readLine() не вернет null
             // когда вернется null - файл закончен
             String line = reader.readLine();
             while (line != null) {
                 // рзбиваем строку по разделителю на значения
                 String[] strValues = line.split(";");
 
-                // создаем новый массив размером равным количеству столбцов
+                // создаем новый массив размером, равным количеству столбцов
                 int[] values = new int[numberOfColumns];
 
                 // в цикле преобразуем строковые значения в числовые и записываем в массив
@@ -72,7 +72,7 @@ public class AppData {
             for (int[] columns : this.data) {
                 for (int value : columns) {
                     String valueAndSeparator = value + ";";
-                    // Сохраянет в файл числовое значение и разделитель. Пример: 500;
+                    // Сохраняет в файл числовое значение и разделитель
                     writer.print(valueAndSeparator);
                 }
 
