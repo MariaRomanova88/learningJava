@@ -10,6 +10,7 @@ public class MainClass {
         String[][] invalid_data = {{"1","1","3","4",},{"1","2","аа3","4"}};
 
         //Корректный массив;
+        System.out.println("Когда массив корректный:");
         try {
             result = analyze(array);
         } catch(MyArraySizeException | MyArrayDataException e){
@@ -19,6 +20,8 @@ public class MainClass {
         }
 
         //Некорректный массив;
+        System.out.println(" ");
+        System.out.println("Когда массив некорректный:");
         try {
             result = 0;
             result = analyze(invalid_array);
@@ -29,6 +32,8 @@ public class MainClass {
         }
 
         //Некорректные данные;
+        System.out.println(" ");
+        System.out.println("Когда данные некорректны:");
         try {
             result = 0;
             result = analyze(invalid_data);
