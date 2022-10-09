@@ -12,7 +12,7 @@ public class ArrayClass {
 
         System.out.println("Список уникальных слов:");
         System.out.println(unique);
-        System.out.println("Сколько раз встречается каждое слово:");
+        System.out.println("Сколько раз встречается каждое слово?");
         for (String key : unique)
             System.out.println(key + ": " + Collections.frequency(words, key));
     }

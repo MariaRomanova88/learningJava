@@ -15,13 +15,13 @@ public class Phonebook {
             List<String> numbers = phonebook.get(surname);
             if(!numbers.contains(number)){
                 numbers.add(number);
-                System.out.printf("Номер %s добавлен для фамилии %s%n", number, surname);
+                System.out.printf("Номер %s добавлен для фамилии %s.%n", number, surname);
             } else {
-                System.out.printf("Номер %s уже существует для фамилии %s%n", number, surname);
+                System.out.printf("Номер %s уже существует для фамилии %s.%n", number, surname);
             }
         } else {
             phonebook.put(surname, new ArrayList<>(Collections.singletonList(number)));
-            System.out.printf("Номер %s добавлен для фамилии %s%n", number, surname);
+            System.out.printf("Номер %s добавлен для фамилии %s.%n", number, surname);
         }
     }
 
@@ -29,7 +29,7 @@ public class Phonebook {
         if(phonebook.containsKey(surname)){
             phonebook.get(surname);
         } else {
-            System.out.printf("В справочнике нет записи для фамилии %s%n", surname);
+            System.out.printf("В справочнике нет записи для фамилии %s.%n", surname);
         }
     }
 }
