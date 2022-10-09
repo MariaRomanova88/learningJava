@@ -3,41 +3,67 @@ package school.lesson6;
 public class MainClass {
     public static void main(String[] args) {
 
-        String[][] arr = new String[][] {{"1", "2", "3", "4"}, {"2", "2", "2", "3"}, {"1", "2", "2", "2"}, {"2", "2", "2", "2"}};
+        int result = 0;
+
+        String[][] array = {{"1","1","1","1"},{"1","1","1","1"}};
+        String[][] error_array = {{"1","2","3","4","1"},{"1","2","3","4"}};
+        String[][] error_data = {{"1","1","3","4",},{"1","2","аа3","4"}};
+
+        //Корректный массив;
         try {
-            try {
-                int result = method(arr);
-                System.out.println(result);
-            } catch (MyArraySizeException e) {
-                System.out.println("Размер массива превышен.");
-            }
+            result = analyze(array);
+        } catch(MyArraySizeException | MyArrayDataException e){
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Сумма элементов массива равна " + result);
         }
-        catch (MyArrayDataException e) {
-            System.out.println("Неправильное значение массива.");
-            System.out.println("Ошибка в ячейке: " + e.i + "x" + e.j);
+
+        //Некорректный массив;
+        try {
+            result = 0;
+            result = analyze(error_array);
+        } catch(MyArraySizeException | MyArrayDataException e){
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Сумма элементов массива равна " + result);
+        }
+
+        //Некорректный массив;
+        try {
+            result = 0;
+            result = analyze(error_data);
+        } catch(MyArraySizeException | MyArrayDataException e){
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Сумма элементов массива равна "+ result);
         }
     }
 
-    public static int method(String[][] arr) throws MyArraySizeException, MyArrayDataException {
-        int count = 0;
-        if (arr.length != 4) {
+    public static int analyze(String[][] array) throws MyArraySizeException, MyArrayDataException {
+
+        int summ = 0;
+        int value = 0;
+        int row = 0;
+        int cell = 0;
+
+        if(array.length != 2 || array[0].length != 4 || array[1].length != 4) {
             throw new MyArraySizeException();
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length != 4) {
-                throw new MyArraySizeException();
-            }
-            for (int j = 0; j < arr[i].length; j++) {
-                try {
-                    count = count + Integer.parseInt(arr[i][j]);
-                }
-                catch (NumberFormatException e) {
-                    throw new MyArrayDataException(i, j);
+
+        for(int i = 1; i < 3; i++){
+            row = i;
+            for(int c = 1; c < 5; c++){
+                cell = c;
+                try{
+                    value = Integer.parseInt(array[i-1][c-1]);
+                    summ += value;
+                } catch (IllegalArgumentException e){
+                    String message = "в/во " + row + " ряду " + cell + " ячейке";
+                    throw new MyArrayDataException(message);
                 }
             }
         }
 
-        return count;
+        return summ;
     }
 }
-
