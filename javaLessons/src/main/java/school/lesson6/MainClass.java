@@ -6,8 +6,8 @@ public class MainClass {
         int result = 0;
 
         String[][] array = {{"1","1","1","1"},{"1","1","1","1"}};
-        String[][] error_array = {{"1","2","3","4","1"},{"1","2","3","4"}};
-        String[][] error_data = {{"1","1","3","4",},{"1","2","аа3","4"}};
+        String[][] invalid_array = {{"1","2","3","4","1"},{"1","2","3","4"}};
+        String[][] invalid_data = {{"1","1","3","4",},{"1","2","аа3","4"}};
 
         //Корректный массив;
         try {
@@ -21,17 +21,17 @@ public class MainClass {
         //Некорректный массив;
         try {
             result = 0;
-            result = analyze(error_array);
+            result = analyze(invalid_array);
         } catch(MyArraySizeException | MyArrayDataException e){
             System.out.println(e.getMessage());
         } finally {
             System.out.println("Сумма элементов массива равна " + result);
         }
 
-        //Некорректный массив;
+        //Некорректные данные;
         try {
             result = 0;
-            result = analyze(error_data);
+            result = analyze(invalid_data);
         } catch(MyArraySizeException | MyArrayDataException e){
             System.out.println(e.getMessage());
         } finally {
@@ -41,7 +41,7 @@ public class MainClass {
 
     public static int analyze(String[][] array) throws MyArraySizeException, MyArrayDataException {
 
-        int summ = 0;
+        int sum = 0;
         int value = 0;
         int row = 0;
         int cell = 0;
@@ -56,7 +56,7 @@ public class MainClass {
                 cell = c;
                 try{
                     value = Integer.parseInt(array[i-1][c-1]);
-                    summ += value;
+                    sum += value;
                 } catch (IllegalArgumentException e){
                     String message = "в/во " + row + " ряду " + cell + " ячейке";
                     throw new MyArrayDataException(message);
@@ -64,6 +64,6 @@ public class MainClass {
             }
         }
 
-        return summ;
+        return sum;
     }
 }
