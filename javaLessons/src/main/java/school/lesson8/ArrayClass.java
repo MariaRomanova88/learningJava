@@ -14,6 +14,6 @@ public class ArrayClass {
         System.out.println(unique);
         System.out.println("Сколько раз встречается каждое слово:");
         for (String key : unique)
-            System.out.println(key + ": " + Collections.frequency(words, key));
+            System.out.println(key + ":" + Collections.frequency(words, key));
     }
 }
