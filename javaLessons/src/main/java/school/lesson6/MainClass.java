@@ -15,7 +15,7 @@ public class MainClass {
         } catch(MyArraySizeException | MyArrayDataException e){
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Сумма элементов массива равна " + result);
+            System.out.println("Результат суммирования элементов массива равен " + result);
         }
 
         //Некорректный массив;
@@ -25,7 +25,7 @@ public class MainClass {
         } catch(MyArraySizeException | MyArrayDataException e){
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Сумма элементов массива равна " + result);
+            System.out.println("Результат суммирования элементов массива равен " + result);
         }
 
         //Некорректные данные;
@@ -35,16 +35,16 @@ public class MainClass {
         } catch(MyArraySizeException | MyArrayDataException e){
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Сумма элементов массива равна "+ result);
+            System.out.println("Результат суммирования элементов массива равен " + result);
         }
     }
 
     public static int analyze(String[][] array) throws MyArraySizeException, MyArrayDataException {
 
         int sum = 0;
-        int value = 0;
-        int row = 0;
-        int cell = 0;
+        int value;
+        int row;
+        int cell;
 
         if(array.length != 2 || array[0].length != 4 || array[1].length != 4) {
             throw new MyArraySizeException();
@@ -58,7 +58,7 @@ public class MainClass {
                     value = Integer.parseInt(array[i-1][c-1]);
                     sum += value;
                 } catch (IllegalArgumentException e){
-                    String message = "в/во " + row + " ряду " + cell + " ячейке";
+                    String message = "в/во " + row + " ряду в " + cell + " ячейке";
                     throw new MyArrayDataException(message);
                 }
             }
